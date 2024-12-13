@@ -1,0 +1,5 @@
+local Keys = {
+    Free = true,
+}
+
+return Keys
