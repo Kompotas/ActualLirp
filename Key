@@ -1,5 +1,1 @@
-local Keys = {
-    Free = true,
-}
-
-return Keys
+return "Free"
