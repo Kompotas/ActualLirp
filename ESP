@@ -46,6 +46,8 @@ local ESP_SETTINGS = {
     TracerThickness = 2,
     SkeletonsColor = Color3.new(1, 1, 1),
     TracerPosition = "Bottom",
+
+    StudsToMeters = true,
 }
 
 local function create(class, properties)
@@ -280,10 +282,20 @@ local function updateEsp()
                     end
 
                     if ESP_SETTINGS.ShowDistance and ESP_SETTINGS.Enabled then
-                        local distance = (camera.CFrame.p - rootPart.Position).Magnitude
-                        esp.distance.Text = string.format("%.1f studs", distance)
-                        esp.distance.Position = Vector2.new(boxPosition.X + boxSize.X / 2, boxPosition.Y + boxSize.Y + 5)
-                        esp.distance.Visible = true
+                        local distance = (camera.CFrame.p - rootPart.Position).Magnitude              
+                        local Text        
+                        if ESP_SETTINGS.StudsToMeters then
+                            distance = distance / 4
+                            local Text = string.format("%.1f Meters", distance) 
+                        else
+                            local Text = string.format("%.1f Studs", distance)
+                        end
+                        
+                        if Text then
+                            esp.distance.Text = Text
+                            esp.distance.Position = Vector2.new(boxPosition.X + boxSize.X / 2, boxPosition.Y + boxSize.Y + 5)
+                            esp.distance.Visible = true
+                        end
                     else
                         esp.distance.Visible = false
                     end
