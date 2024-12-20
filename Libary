@@ -1640,7 +1640,7 @@ end
                         function element:set_value(new_value, cb)
                             value = new_value or value
 
-                            TextBox.Text = value.Text
+                            TextBox.Text = value.Text or "Error Contact Administrator."
 
                             if cb == nil or not cb then
                                 do_callback()
