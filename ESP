@@ -295,7 +295,7 @@ local function updateEsp()
                         
                         if Text then
                             esp.distance.Text = Text
-                            esp.distance.TextColor = ESP_SETTINGS.DistanceColor
+                            esp.distance.Color = ESP_SETTINGS.DistanceColor
                             esp.distance.Position = Vector2.new(boxPosition.X + boxSize.X / 2, boxPosition.Y + boxSize.Y + 5)
                             esp.distance.Visible = true
                         end
