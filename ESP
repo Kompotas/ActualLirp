@@ -90,7 +90,7 @@ local function createEsp(player)
             Thickness = 1
         }),
         distance = create("Text", {
-            Color = Color3.new(1, 1, 1),
+            Color = ESP_SETTINGS.DistanceColor,
             Size = 12,
             Outline = true,
             Center = true
