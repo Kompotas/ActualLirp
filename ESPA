@@ -107,19 +107,6 @@ local function createEsp(player)
     cache[player]["skeletonlines"] = {}
 end
 
-local function removeEsp(player)
-    local esp = cache[player]
-    if not esp then return end
-
-    for _, drawing in pairs(esp) do
-        if drawing then
-            drawing:Remove()
-        end
-    end
-
-    cache[player] = nil
-end
-
 local function updateEsp()
     for player, esp in pairs(cache) do
         local character = game.Workspace.Players:FindFirstChild(player.Name)
@@ -399,10 +386,6 @@ Players.PlayerAdded:Connect(function(player)
     if player ~= localPlayer then
         createEsp(player)
     end
-end)
-
-Players.PlayerRemoving:Connect(function(player)
-    removeEsp(player)
 end)
 
 RunService.RenderStepped:Connect(updateEsp)
