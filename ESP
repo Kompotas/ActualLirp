@@ -275,7 +275,7 @@ local function updateEsp()
                         local Text
 
                         if ESP_SETTINGS.StudsToMeters then
-                            Distance = Distance / 3
+                            Distance = Distance / 3.5
                             Text = Distance .. " Meters"
                         else
                             Text = Distance .. " Studs"
