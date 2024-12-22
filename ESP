@@ -42,8 +42,9 @@ local ESP_SETTINGS = {
     ShowDistance = false,
     DistanceColor = Color3.new(1, 1, 1), 
     ShowSkeletons = false,
+    SkeletonThickness = 1,
     ShowTracer = false,
-    TracerColor = Color3.new(1, 1, 1), 
+    TracerColor = Color3.new(1, 1, 1),
     TracerThickness = 2,
     SkeletonsColor = Color3.new(1, 1, 1),
     TracerPosition = "Bottom",
@@ -274,7 +275,7 @@ local function updateEsp()
                         local Text
 
                         if ESP_SETTINGS.StudsToMeters then
-                            Distance = Distance / 3.35
+                            Distance = Distance / 3
                             Text = Distance .. " Meters"
                         else
                             Text = Distance .. " Studs"
@@ -297,7 +298,7 @@ local function updateEsp()
                                 
                                 if player.Character and player.Character[parentBone] and player.Character[childBone] then
                                     local skeletonLine = create("Line", {
-                                        Thickness = 1,
+                                        Thickness = ESP_SETTINGS.SkeletonThickness,
                                         Color = ESP_SETTINGS.SkeletonsColor,
                                         Transparency = 1
                                     })
