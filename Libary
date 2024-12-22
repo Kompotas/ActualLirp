@@ -133,15 +133,13 @@ function library.new(library_title, cfg_location)
     end
 
     menu.open = true
-    local ScreenGui = game.Players.LocalPlayer.PlayerGui:FindFirstChildOfClass("ScreenGui")
-    if not ScreenGui then
-        local ScreenGui = library:create("ScreenGui", {
-            ResetOnSpawn = false,
-            ZIndexBehavior = Enum.ZIndexBehavior.Global,
-            Name = "unknown",
-            IgnoreGuiInset = true,
-        })
-    end
+
+    local ScreenGui = library:create("ScreenGui", {
+        ResetOnSpawn = false,
+        ZIndexBehavior = Enum.ZIndexBehavior.Global,
+        Name = "unknown",
+    IgnoreGuiInset = true,
+    })
 
 	if syn then
 		syn.protect_gui(ScreenGui)
