@@ -433,15 +433,4 @@ end
 
 ------------------------------------------------------------------------
 
-do
-	function ToggleFreecam()
-		if FreecamConfig.FreeCamCurrentlyActive then
-			StopFreecam()
-		else
-			StartFreecam()
-		end
-
-		FreecamConfig.FreeCamCurrentlyActive = not FreecamConfig.FreeCamCurrentlyActive
-	end
-end
 return FreecamConfig
