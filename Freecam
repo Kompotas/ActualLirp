@@ -444,3 +444,4 @@ do
 		FreecamConfig.FreeCamCurrentlyActive = not FreecamConfig.FreeCamCurrentlyActive
 	end
 end
+return FreecamConfig
