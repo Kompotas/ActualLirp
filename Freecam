@@ -1,5 +1,6 @@
 local FreecamConfig = {
-    FreecamEnabled = false
+    FreeCamEnabled = false,
+    FreeCamCurrentlyActive = false,
 }
 
 local pi    = math.pi
@@ -433,23 +434,13 @@ end
 ------------------------------------------------------------------------
 
 do
-	Enabled = false
-
 	function ToggleFreecam()
-		if enabled then
+		if FreecamConfig.FreeCamCurrentlyActive then
 			StopFreecam()
 		else
 			StartFreecam()
 		end
 
-		enabled = not enabled
+		FreecamConfig.FreeCamCurrentlyActive = not FreecamConfig.FreeCamCurrentlyActive
 	end
-
-	local function HandleActivationInput(action, state, input)
-        
-		return true
-	end
-
-	ContextActionService:BindActionAtPriority("FreecamToggle", HandleActivationInput, false, TOGGLE_INPUT_PRIORITY, FREECAM_MACRO_KB[#FREECAM_MACRO_KB])
 end
-print("sigma")
