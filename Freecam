@@ -1,6 +1,5 @@
 local FreecamConfig = {
     FreeCamEnabled = false,
-    FreeCamCurrentlyActive = false,
 }
 
 local pi    = math.pi
