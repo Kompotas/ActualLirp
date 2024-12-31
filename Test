@@ -10,7 +10,7 @@ _G.InjectedGui = true
 local ScreenGui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
 
 local MainFrame = Instance.new("Frame", ScreenGui)
-MainFrame.ZIndex = 0
+MainFrame.ZIndex = 10
 MainFrame.BorderSizePixel = 0
 MainFrame.BackgroundColor3 = Color3.fromRGB(11, 134, 153)
 MainFrame.BackgroundTransparency = 0.05
