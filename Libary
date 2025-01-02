@@ -132,18 +132,6 @@ function library.new(library_title, cfg_location)
         menu.on_load_cfg:Fire()
     end
 
-    local Cursor = library:create("ImageLabel", {
-        Name = "Cursor",
-        BackgroundTransparency = 1,
-        Size = UDim2.new(0, 17, 0, 17),
-        Image = "rbxassetid://7205257578",
-        ZIndex = 6969,
-    }, ScreenGui)
-
-    rs.RenderStepped:Connect(function()
-        Cursor.Position = UDim2.new(0, Mouse.X, 0, Mouse.Y + 59)
-    end)
-
     menu.open = true
 
     local ScreenGui = library:create("ScreenGui", {
@@ -158,6 +146,18 @@ function library.new(library_title, cfg_location)
 	end
 
 	ScreenGui.Parent = game:GetService("CoreGui")
+
+    local Cursor = library:create("ImageLabel", {
+        Name = "Cursor",
+        BackgroundTransparency = 1,
+        Size = UDim2.new(0, 17, 0, 17),
+        Image = "rbxassetid://7205257578",
+        ZIndex = 6969,
+    }, ScreenGui)
+
+    rs.RenderStepped:Connect(function()
+        Cursor.Position = UDim2.new(0, Mouse.X, 0, Mouse.Y + 59)
+    end)
 
     function menu.IsOpen()
         return menu.open
