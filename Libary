@@ -27,7 +27,7 @@ function library:console(func)
     func(("\n"):rep(57))
 end
 
-library.signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/Quenty/NevermoreEngine/version2/Modules/Shared/Events/Signal.lua",true))()
+library.signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/Quenty/NevermoreEngine/version2/Modules/Shared/Events/Signal.lua"))()
 
 local local_player = game:GetService("Players").LocalPlayer
 local mouse = local_player:GetMouse()
@@ -133,19 +133,16 @@ function library.new(library_title, cfg_location)
     end
 
     menu.open = true
-
     local ScreenGui = library:create("ScreenGui", {
         ResetOnSpawn = false,
         ZIndexBehavior = Enum.ZIndexBehavior.Global,
         Name = "unknown",
-    IgnoreGuiInset = true,
+        IgnoreGuiInset = true,
     })
 
 	if syn then
 		syn.protect_gui(ScreenGui)
 	end
-
-	ScreenGui.Parent = game:GetService("CoreGui")
 
     local Cursor = library:create("ImageLabel", {
         Name = "Cursor",
@@ -156,26 +153,28 @@ function library.new(library_title, cfg_location)
     }, ScreenGui)
 
     rs.RenderStepped:Connect(function()
-        if mouse then
-            Cursor.Position = UDim2.new(0, mouse.X, 0, mouse.Y + 59)
-        else
-            mouse = local_player:GetMouse()
-        end
+        Cursor.Position = UDim2.new(0, mouse.X, 0, mouse.Y + 36)
     end)
+
+	ScreenGui.Parent = game:GetService("CoreGui")
 
     function menu.IsOpen()
         return menu.open
     end
-
     function menu.SetOpen(State)
         ScreenGui.Enabled = state
     end
 
     uis.InputBegan:Connect(function(key)
-        if key.KeyCode ~= Enum.KeyCode.Insert and key.KeyCode ~= Enum.KeyCode.Home then return end
+        if key.KeyCode ~= Enum.KeyCode.Insert then return end
 
 		ScreenGui.Enabled = not ScreenGui.Enabled
         menu.open = ScreenGui.Enabled
+
+        while ScreenGui.Enabled do
+            uis.MouseIconEnabled = true
+            rs.RenderStepped:Wait()
+        end
 	end)
 
     local ImageLabel = library:create("ImageButton", {
@@ -621,7 +620,7 @@ end
                                 Position = UDim2.new(0, 265, 0, 0),
                                 Size = UDim2.new(0, 56, 0, 20),
                                 Font = Enum.Font.Ubuntu,
-                                Text = "[ " .. key_default .." ]",
+                                Text = "[ NONE ]",
                                 TextColor3 = Color3.fromRGB(150, 150, 150),
                                 TextSize = 14,
                                 TextXAlignment = Enum.TextXAlignment.Right,
@@ -722,7 +721,6 @@ end
                                     else
                                         extra_value.Active = true
                                     end
-
                                     key_callback(extra_value)
                                     menu.values[tab.tab_num][section_name][sector_name][extra_flag] = extra_value
 
@@ -1658,7 +1656,7 @@ end
                         function element:set_value(new_value, cb)
                             value = new_value or value
 
-                            TextBox.Text = value.Text or "Default"
+                            TextBox.Text = value.Text
 
                             if cb == nil or not cb then
                                 do_callback()
