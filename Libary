@@ -100,9 +100,6 @@ function library.new(library_title, cfg_location)
             for _, section in next, tab do
                 for _, sector in next, section do
                     for _, element in next, sector do
-                        for key, value in pairs(element) do
-                            print(key, value)
-                        end
                         if element.Color then
                             element.Color = {R = element.Color.R, G = element.Color.G, B = element.Color.B}
                         end
