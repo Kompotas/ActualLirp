@@ -96,20 +96,24 @@ function library.new(library_title, cfg_location)
     end
     function menu.save_cfg(cfg_name)
         local values_copy = menu.copy(menu.values)
-        for _,tab in next, values_copy do
-            for _,section in next, tab do
-                for _,sector in next, section do
-                    for _,element in next, sector do
-                        if not element.Color then continue end
-
-                        element.Color = {R = element.Color.R, G = element.Color.G, B = element.Color.B}
+        for _, tab in next, values_copy do
+            for _, section in next, tab do
+                for _, sector in next, section do
+                    for _, element in next, sector do
+                        if element.Keybind then
+                            element.Keybind = {Type = element.Keybind.Type, Key = element.Keybind.Key, Active = element.Keybind.Active}
+                            print("Saved Keybind")
+                        end
+                        if element.Color then
+                            element.Color = {R = element.Color.R, G = element.Color.G, B = element.Color.B}
+                        end
                     end
                 end
             end
         end
-
-        writefile(cfg_location..cfg_name..".txt", http:JSONEncode(values_copy))
+        writefile(cfg_location .. cfg_name .. ".txt", http:JSONEncode(values_copy))
     end
+
     function menu.load_cfg(cfg_name)
         local new_values = http:JSONDecode(readfile(cfg_location..cfg_name..".txt"))
 
