@@ -95,7 +95,6 @@ function library.new(library_title, cfg_location)
         return copy
     end
     function menu.save_cfg(cfg_name)
-        getgenv().Key = nil
         local values_copy = menu.copy(menu.values)
         for _, tab in next, values_copy do
             for _, section in next, tab do
