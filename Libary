@@ -1187,7 +1187,7 @@ end
                                 DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 20)
                             end
                         else
-                            DropdownScroll.Size = UDim2.new(0, 260, 0, 40 * options_num)
+                            DropdownScroll.Size = UDim2.new(0, 260, 0, 20 * options_num)
                         end
 
                         local in_drop = false
