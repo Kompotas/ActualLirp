@@ -1182,12 +1182,12 @@ end
 
                         local options_num = #data.options
                         if options_num >= 4 then
-                            DropdownScroll.Size = UDim2.new(0, 260, 0, 80)
+                            DropdownScroll.Size = UDim2.new(0, 260, 0, 160)
                             for i = 1, options_num do
-                                DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 20)
+                                DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 40)
                             end
                         else
-                            DropdownScroll.Size = UDim2.new(0, 260, 0, 20 * options_num)
+                            DropdownScroll.Size = UDim2.new(0, 260, 0, 40 * options_num)
                         end
 
                         local in_drop = false
@@ -1391,10 +1391,10 @@ end
                         if options_num >= 4 then
                             DropdownScroll.Size = UDim2.new(0, 260, 0, 80)
                             for i = 1, options_num do
-                                DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 20)
+                                DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 40)
                             end
                         else
-                            DropdownScroll.Size = UDim2.new(0, 260, 0, 20 * options_num)
+                            DropdownScroll.Size = UDim2.new(0, 260, 0, 40 * options_num)
                         end
 
                         local in_drop = false
@@ -1705,7 +1705,7 @@ end
                             Position = UDim2.new(0.5, 0, 0, 5),
                             Size = UDim2.new(0, 215, 0, scrollsize * 20),
                             BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
-                            CanvasSize = UDim2.new(0, 0, 0, #data.options * 20),
+                            CanvasSize = UDim2.new(0, 0, 0, #data.options * 40),
                             ScrollBarThickness = 4,
                             TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
                             AnchorPoint = Vector2.new(0.5, 0),
@@ -1801,7 +1801,7 @@ end
                         function element:add_value(v)
                             if ScrollFrame:FindFirstChild(v) then return end
 
-                            ScrollFrame.CanvasSize = ScrollFrame.CanvasSize + UDim2.new(0, 0, 0, 20)
+                            ScrollFrame.CanvasSize = ScrollFrame.CanvasSize + UDim2.new(0, 0, 0, 40)
 
                             local Button = library:create("TextButton", {
                                 Name = v,
