@@ -1184,7 +1184,7 @@ end
                         if options_num >= 4 then
                             DropdownScroll.Size = UDim2.new(0, 260, 0, 160)
                             for i = 1, options_num do
-                                DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 40)
+                                DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 20)
                             end
                         else
                             DropdownScroll.Size = UDim2.new(0, 260, 0, 40 * options_num)
@@ -1391,7 +1391,7 @@ end
                         if options_num >= 4 then
                             DropdownScroll.Size = UDim2.new(0, 260, 0, 80)
                             for i = 1, options_num do
-                                DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 40)
+                                DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 20)
                             end
                         else
                             DropdownScroll.Size = UDim2.new(0, 260, 0, 40 * options_num)
@@ -1705,7 +1705,7 @@ end
                             Position = UDim2.new(0.5, 0, 0, 5),
                             Size = UDim2.new(0, 215, 0, scrollsize * 20),
                             BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
-                            CanvasSize = UDim2.new(0, 0, 0, #data.options * 40),
+                            CanvasSize = UDim2.new(0, 0, 0, #data.options * 20),
                             ScrollBarThickness = 4,
                             TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
                             AnchorPoint = Vector2.new(0.5, 0),
@@ -1801,7 +1801,7 @@ end
                         function element:add_value(v)
                             if ScrollFrame:FindFirstChild(v) then return end
 
-                            ScrollFrame.CanvasSize = ScrollFrame.CanvasSize + UDim2.new(0, 0, 0, 40)
+                            ScrollFrame.CanvasSize = ScrollFrame.CanvasSize + UDim2.new(0, 0, 0, 20)
 
                             local Button = library:create("TextButton", {
                                 Name = v,
