@@ -1479,7 +1479,7 @@ end
                                 if table.find(value.Combo, ButtonText.Text) then
                                     DropButton.Decoration.Visible = true
                                     ButtonText.TextColor3 = Color3.fromRGB(255, 255, 255)
-                                else
+                                elseif DropButton:FindFirstChild("Decoration") then
                                     DropButton.Decoration.Visible = false
                                     ButtonText.TextColor3 = Color3.fromRGB(150, 150, 150)
                                 end
