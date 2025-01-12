@@ -1480,7 +1480,7 @@ end
                                     DropButton.Decoration.Visible = true
                                     ButtonText.TextColor3 = Color3.fromRGB(255, 255, 255)
                                 elseif DropButton:FindFirstChild("Decoration") then
-                                    DropButton.Decoration.Visible = false
+                                    DropButton:FindFirstChild("Decoration").Visible = false
                                     ButtonText.TextColor3 = Color3.fromRGB(150, 150, 150)
                                 end
                             end
