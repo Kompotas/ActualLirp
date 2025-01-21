@@ -599,7 +599,7 @@ end
                             has_extra = true
                             local extra_flag = "$"..flag
 
-                            local extra_value = {Key, Type = "Always", Active = true}
+                            local extra_value = {Key, Type = "Hold", Active = false}
                             key_callback = key_callback or function() end
 
                             local Keybind = library:create("TextButton", {
@@ -706,7 +706,7 @@ end
 
                                     extra_value.Type = TypeButton.Text
                                     if extra_value.Type == "Always" then
-                                        extra_value.Active = true
+                                        extra_valueextra_value.Type.Active = true
                                     else
                                         extra_value.Active = true
                                     end
