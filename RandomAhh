@@ -1,4 +1,4 @@
 local Table = {
-  Var = true
-  Var1 = false
+  Var = true,
+  Var1 = false,
 }
