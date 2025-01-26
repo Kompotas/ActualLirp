@@ -2,3 +2,5 @@ local Table = {
     Var = true,
     Var1 = false,
 }
+
+return Table
