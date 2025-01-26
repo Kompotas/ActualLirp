@@ -1,1 +1,4 @@
-return "pedophile"
+local Table = {
+  Var = true
+  Var1 = false
+}
