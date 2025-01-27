@@ -491,7 +491,7 @@ end
                     }, LineFrame)
                 end
 
-                function sector.element(type, text, data, callback, c_flag)
+                function sector.element(type, text, data, callback, dangerous = false, c_flag)
                     text, data, callback = text and text or type, data and data or {}, callback and callback or function() end
 
                     local value = {}
@@ -546,13 +546,18 @@ end
                             Size = UDim2.new(0, 9, 0, 9),
                         }, ToggleButton)
 
+			local ButtonColor = Color3.fromRGB(150, 150, 150)
+                        if dangerous then
+                            ButtonColor = Color3.fromRGB(255, 0, 0)
+                        end
+
                         local ToggleText = library:create("TextLabel", {
                             BackgroundTransparency = 1,
                             Position = UDim2.new(0, 27, 0, 5),
                             Size = UDim2.new(0, 200, 0, 9),
                             Font = Enum.Font.Ubuntu,
                             Text = text,
-                            TextColor3 = Color3.fromRGB(150, 150, 150),
+                            TextColor3 = ButtonColor,
                             TextSize = 14,
                             TextXAlignment = Enum.TextXAlignment.Left,
                         }, ToggleButton)
