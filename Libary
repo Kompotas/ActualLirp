@@ -491,7 +491,7 @@ end
                     }, LineFrame)
                 end
 
-                function sector.element(type, text, data, callback, dangerous = false, c_flag)
+                function sector.element(type, text, data, callback, dangerous, c_flag)
                     text, data, callback = text and text or type, data and data or {}, callback and callback or function() end
 
                     local value = {}
@@ -547,7 +547,7 @@ end
                         }, ToggleButton)
 
 			local ButtonColor = Color3.fromRGB(150, 150, 150)
-                        if dangerous then
+                        if dangerous ~= "undefined" then
                             ButtonColor = Color3.fromRGB(255, 0, 0)
                         end
 
