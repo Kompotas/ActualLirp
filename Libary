@@ -708,7 +708,7 @@ end
                                     if extra_value.Type == "Always" then
                                         extra_valueextra_value.Type.Active = true
                                     else
-                                        extra_value.Active = true
+                                        extra_value.Active = false
                                     end
 
                                     key_callback(extra_value)
