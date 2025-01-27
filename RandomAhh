@@ -1,7 +1,5 @@
 local Table = {
     Xkarpx1 = true,
-    BLAZE_Starry = true,
-    Bart_Simsonalt = true,
 }
 
 return Table
