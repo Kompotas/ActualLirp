@@ -747,6 +747,8 @@ end
                                             extra_value.Active = not extra_value.Active
                                         elseif extra_value.Type == "Hold" then
                                             extra_value.Active = true
+                                        elseif extra_value.Type == "Always" then
+                                            extra_value.Active = true
                                         end
                                         key_callback(extra_value)
                                         menu.values[tab.tab_num][section_name][sector_name][extra_flag] = extra_value
