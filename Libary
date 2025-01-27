@@ -706,7 +706,7 @@ end
 
                                     extra_value.Type = TypeButton.Text
                                     if extra_value.Type == "Always" then
-                                        extra_valueextra_value.Type.Active = true
+                                        extra_value.Active = true
                                     else
                                         extra_value.Active = false
                                     end
@@ -746,8 +746,6 @@ end
                                         if extra_value.Type == "Toggle" then
                                             extra_value.Active = not extra_value.Active
                                         elseif extra_value.Type == "Hold" then
-                                            extra_value.Active = true
-                                        elseif extra_value.Type == "Always" then
                                             extra_value.Active = true
                                         end
                                         key_callback(extra_value)
