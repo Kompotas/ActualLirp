@@ -1378,7 +1378,7 @@ end
 
                         local options_num = #data.options
                         if options_num >= 4 then
-                            DropdownScroll.Size = UDim2.new(0, 260, 0, 160)
+                            DropdownScroll.Size = UDim2.new(0, 260, 0, 20)
                             for i = 1, options_num do
                                 DropdownScroll.CanvasSize = DropdownScroll.CanvasSize + UDim2.new(0, 0, 0, 20)
                             end
