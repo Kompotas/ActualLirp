@@ -94,15 +94,18 @@ function library.new(library_title, cfg_location)
         end
         return copy
     end
+
     function menu.save_cfg(cfg_name)
         local values_copy = menu.copy(menu.values)
+	if getgenv().Key then
+		print("ASFKFSKAOOKFSAKOFSKOAFSOKFKOFOAKOKOKASFKOFSAOKFASKOOK")
+		getgenv().Key = nil
+	end
+
         for _, tab in next, values_copy do
             for _, section in next, tab do
                 for _, sector in next, section do
                     for _, element in next, sector do
-                	for key, value in pairs(element) do
-                            print(key, value)
-                        end
 
                         if element.Color then
                             element.Color = {R = element.Color.R, G = element.Color.G, B = element.Color.B}
@@ -111,6 +114,7 @@ function library.new(library_title, cfg_location)
                 end
             end
         end
+
         writefile(cfg_location .. cfg_name .. ".txt", http:JSONEncode(values_copy))
     end
 
