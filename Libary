@@ -97,10 +97,6 @@ function library.new(library_title, cfg_location)
 
     function menu.save_cfg(cfg_name)
         local values_copy = menu.copy(menu.values)
-        if getgenv().Key then
-            print("ASFKFSKAOOKFSAKOFSKOAFSOKFKOFOAKOKOKASFKOFSAOKFASKOOK")
-            getgenv().Key = nil
-	end
 
         for _, tab in next, values_copy do
             for _, section in next, tab do
@@ -742,19 +738,19 @@ end
                                     local new_value = input.KeyCode.Name ~= "Unknown" and input.KeyCode.Name or input.UserInputType.Name
                                     Keybind.Text = "[ "..new_value:upper().." ]"
 									Keybind.Size = UDim2.new(0, library:get_text_size(Keybind.Text, 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3, 0, 20)
-									extra_value.Key = new_value
+									extra_value.Keybind = new_value
 
 									if new_value == "Backspace" then
 										Keybind.Text = "[ NONE ]"
 										Keybind.Size = UDim2.new(0, library:get_text_size(Keybind.Text, 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3, 0, 20)
-										extra_value.Key = nil
+										extra_value.Keybind = nil
 									end
 
                                     key_callback(extra_value)
                                     menu.values[tab.tab_num][section_name][sector_name][extra_flag] = extra_value
-                                elseif extra_value.Key ~= nil then
+                                elseif extra_value.Keybind ~= nil then
                                     local key = input.KeyCode.Name ~= "Unknown" and input.KeyCode.Name or input.UserInputType.Name
-                                    if key == extra_value.Key then
+                                    if key == extra_value.Keybind then
                                         if extra_value.Type == "Toggle" then
                                             extra_value.Active = not extra_value.Active
                                         elseif extra_value.Type == "Hold" then
@@ -766,9 +762,9 @@ end
                                 end
                             end)
                             uis.InputEnded:Connect(function(input)
-                                if extra_value.Key ~= nil and not is_binding then
+                                if extra_value.Keybind ~= nil and not is_binding then
                                     local key = input.KeyCode.Name ~= "Unknown" and input.KeyCode.Name or input.UserInputType.Name
-                                    if key == extra_value.Key then
+                                    if key == extra_value.Keybind then
                                         if extra_value.Type == "Hold" then
                                             extra_value.Active = false
                                             key_callback(extra_value)
@@ -806,7 +802,7 @@ end
                                     end
                                 end
 
-                                local key = extra_value.Key ~= nil and extra_value.Key or "NONE"
+                                local key = extra_value.Keybind ~= nil and extra_value.Keybind or "NONE"
                                 Keybind.Text = "[ "..key:upper().." ]"
                                 Keybind.Size = UDim2.new(0, library:get_text_size(Keybind.Text, 14, Enum.Font.Ubuntu, Vector2.new(700, 20)).X + 3, 0, 20)
     
