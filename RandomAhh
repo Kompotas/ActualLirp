@@ -1,5 +1,0 @@
-local Table = {
-    Abigail_Gam3r = true,
-}
-
-return Table
