@@ -1,5 +1,6 @@
 local Value = {
-  ["Agent_lynx"] = true,
+    ["Agent_lynx"] = true,
+    ["Pr0_Rider2024"] = true,
 }
 
 return Value
