@@ -1303,14 +1303,8 @@ end
 
                                     do_callback()
                                 end)
-
-                                if dropdown_is_first then
-                                    dropdown_is_first = false
-                                end
                             end
-                            element:set_value(value, true)
                         end
-
 
                         local dropdown_is_first = true
                         for _,v in next, data.options do
