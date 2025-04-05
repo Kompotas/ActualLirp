@@ -1238,9 +1238,7 @@ end
                         function element:refresh(value)
                             data.options = value
 
-                            for _, button in ipairs(DropdownScroll:GetChildren()) do
-                                button:Destroy()
-                            end
+
 
                             local UI = 0
                             local dropdown_is_first = true
