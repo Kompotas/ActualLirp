@@ -1238,14 +1238,13 @@ end
                         function element:refresh(value)
                             data.options = value
 
-                            local UI = 0
-                            local dropdown_is_first = true
-                            for _, button in DropdownScroll do
+                            for _, button in ipairs(DropdownScroll:GetChildren()) do
                                 button:Destroy()
                             end
 
+                            local UI = 0
+                            local dropdown_is_first = true
                             for _, v in next, data.options do
-
                                 local Button = library:create("TextButton", {
                                     Name = v,
                                     BackgroundColor3 = Color3.fromRGB(25, 25, 25),
