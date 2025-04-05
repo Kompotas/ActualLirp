@@ -1239,6 +1239,12 @@ end
                             data.options = value
 
 
+                            for _, button in pairs(DropdownScroll:GetChildren()) do
+                                if button:IsA("TextButton") then
+                                    button:Destroy()
+                                end
+                            end
+
 
                             local UI = 0
                             local dropdown_is_first = true
