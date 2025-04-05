@@ -1236,22 +1236,8 @@ end
                         end
 
                         function element:refresh(value)
-                            for _, v in ipairs(value) do
-                                local Found = false
+                            data.options = value
 
-                                for _, Exists in ipairs(data.options) do
-                                    if Exists == v then
-                                        Found = true
-                                        break
-                                    end
-                                end
-
-                                if not Found then
-                                    table.insert(data.options, v)
-                                end
-                            end
-
-				
                             local UI = 0
                             local dropdown_is_first = true
                             for _, v in next, data.options do
