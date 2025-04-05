@@ -1240,11 +1240,11 @@ end
 
                             local UI = 0
                             local dropdown_is_first = true
+                            for _, button in DropdownScroll do
+                                button:Destroy()
+                            end
+
                             for _, v in next, data.options do
-                                local existingButton = DropdownScroll:FindFirstChild(v)
-                                if existingButton then
-                                    existingButton:Destroy()
-                                end
 
                                 local Button = library:create("TextButton", {
                                     Name = v,
