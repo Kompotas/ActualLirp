@@ -1238,7 +1238,6 @@ end
                         function element:refresh(value)
                             data.options = value
 
-
                             for _, button in pairs(DropdownScroll:GetChildren()) do
                                 if button:IsA("TextButton") then
                                     button:Destroy()
@@ -1738,6 +1737,15 @@ end
                                 do_callback()
                             end
                         end
+
+                        function element:set_text(new_value, cb)
+                            TextBox.Text = new_value
+
+                            if cb == nil or not cb then
+                                do_callback()
+                            end
+                        end
+
                         element:set_value(value, true)
                     elseif type == "Scroll" then
                         local scrollsize = data.scrollsize and data.scrollsize or 5
