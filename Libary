@@ -264,7 +264,7 @@ end
         local TabFrames = Instance.new("Frame")
 
         local Tab = library:create("Frame", {
-            Name = "Tab",
+            Name = "Tab" .. tab_num,
             BackgroundTransparency = 1,
             Size = UDim2.new(1, 0, 1, 0),
             Visible = false,
