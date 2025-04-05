@@ -1236,7 +1236,9 @@ end
                         end
 
                         function element:refresh(value)
-                            table.insert(data.options, value)
+                            for _, v in ipairs(value) do
+                                table.insert(data.options, v)
+                            end
 
                             local dropdown_is_first = true
                             for _, v in next, data.options do
