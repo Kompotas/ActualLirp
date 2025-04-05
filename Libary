@@ -1242,6 +1242,7 @@ end
 
                             local dropdown_is_first = true
                             for _, v in next, data.options do
+                                print(v)
                                 local existingButton = DropdownScroll:FindFirstChild(v)
                                 if existingButton then
                                     existingButton:Destroy()
