@@ -1240,9 +1240,10 @@ end
                                 table.insert(data.options, v)
                             end
 
+				
+                            local UI = 0
                             local dropdown_is_first = true
                             for _, v in next, data.options do
-                                print(v)
                                 local existingButton = DropdownScroll:FindFirstChild(v)
                                 if existingButton then
                                     existingButton:Destroy()
@@ -1303,7 +1304,9 @@ end
 
                                     do_callback()
                                 end)
+                                UI += 1
                             end
+                            DropdownScroll.Size = UDim2.new(0, 260, 0, 20 * UI)
                         end
 
                         local dropdown_is_first = true
