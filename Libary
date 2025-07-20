@@ -733,7 +733,6 @@ end
 
                             local is_binding = false
                             uis.InputBegan:Connect(function(input, GameProccesed)
-                                if input.KeyCode == Enum.KeyCode.F or not GameProccesed then return end
                                 if is_binding then
 									is_binding = false
 
