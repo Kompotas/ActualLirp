@@ -733,7 +733,7 @@ end
 
                             local is_binding = false
                             uis.InputBegan:Connect(function(input, GameProccesed)
-                                if input.KeyCode == Enum.KeyCode.F or not GameProccesed then
+                                if input.KeyCode == Enum.KeyCode.F or not GameProccesed then return end
                                 if is_binding then
 									is_binding = false
 
@@ -763,7 +763,8 @@ end
                                     end
                                 end
                             end)
-                            uis.InputEnded:Connect(function(input, GameProccesed)
+
+                            uis.InputEnded:Connect(function(input)
                                 if extra_value.Key ~= nil and not is_binding then
                                     local key = input.KeyCode.Name ~= "Unknown" and input.KeyCode.Name or input.UserInputType.Name
                                     if key == extra_value.Key then
