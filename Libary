@@ -160,12 +160,14 @@ function library.new(library_title, cfg_location)
         ScreenGui.Enabled = state
     end
 
-    uis.InputBegan:Connect(function(key)
+    uis.InputBegan:Connect(function(key, GameProccesed)
+        if GameProccesed then return end
         if key.KeyCode ~= Enum.KeyCode.Insert and key.KeyCode ~= Enum.KeyCode.Home and key.KeyCode ~= Enum.KeyCode.RightShift then return end
 
-		ScreenGui.Enabled = not ScreenGui.Enabled
+        ScreenGui.Enabled = not ScreenGui.Enabled
         menu.open = ScreenGui.Enabled
-	end)
+    end)
+
 
     local ImageLabel = library:create("ImageButton", {
         Name = "Main",
@@ -730,7 +732,8 @@ end
                             end
 
                             local is_binding = false
-                            uis.InputBegan:Connect(function(input)
+                            uis.InputBegan:Connect(function(input, GameProccesed)
+                                if GameProccesed then return end
                                 if is_binding then
 									is_binding = false
 
@@ -760,7 +763,8 @@ end
                                     end
                                 end
                             end)
-                            uis.InputEnded:Connect(function(input)
+                            uis.InputEnded:Connect(function(input, GameProccesed)
+                                if GameProccesed then return end
                                 if extra_value.Key ~= nil and not is_binding then
                                     local key = input.KeyCode.Name ~= "Unknown" and input.KeyCode.Name or input.UserInputType.Name
                                     if key == extra_value.Key then
